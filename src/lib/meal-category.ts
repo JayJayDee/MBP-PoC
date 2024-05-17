@@ -1,18 +1,13 @@
-import { IBannable } from './bannable.interface';
+import { Bannable } from './bannable';
 import { Meal } from './meal';
 
-export class MealCategory implements IBannable {
+export class MealCategory extends Bannable {
   private readonly _id: string;
   private readonly _name: string;
   private readonly _meals: Meal[];
-  private _banned: boolean;
 
-  public markAsBanned(): void {
-    this._banned = true;
-  }
-
-  public isBanned(): boolean {
-    return this._banned;  
+  constructor() {
+    super(false);
   }
 
   public get id() { return this._id; }
