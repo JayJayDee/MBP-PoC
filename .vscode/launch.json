@@ -1,0 +1,20 @@
+{
+  "version":"0.2.0",
+  "configurations":[
+      {
+          "name":"TestScenario-001",
+          "type":"node",
+          "request":"launch",
+          "args":[
+              "src/test-scenarios/001.ts"
+          ],
+          "runtimeArgs":[
+              "-r",
+              "ts-node/register/transpile-only"
+          ],
+          "cwd":"${workspaceRoot}",
+          "internalConsoleOptions":"openOnSessionStart",
+          "outputCapture":"std"
+      }
+  ]
+}

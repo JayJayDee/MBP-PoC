@@ -1,13 +1,25 @@
-import { Bannable } from './bannable';
+import { Choosable } from './choosable';
 
-export class Meal extends Bannable {
+type ConstructorParam = {
+  id: string;
+  name: string;
+};
+
+export class Meal extends Choosable<string> {
   private readonly _id: string;
   private readonly _name: string;
 
-  constructor() {
-    super(false);
+  private constructor(param: ConstructorParam) {
+    super();
+    this._id = param.id;
+    this._name = param.name;
   }
 
-  public id() { return this._id }
-  public name() { return this._name; }
+  public static create(param: ConstructorParam) {
+    return new Meal(param);
+  }
+
+  public getId() { return this._id; }
+  public get id() { return this._id }
+  public get name() { return this._name; }
 }
